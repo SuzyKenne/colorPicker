@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from "react";
 
 
-function ColorHistory( ){
+function ColorHistory({currentColor, setCurrentColor} ){
 
-    
-    const [currentColor,setCurrentColor] = useState (["#a51d2d", "#8f40bf", "#865e3c"]);
     const [swatches, setSwatches] = useState([]);
     
      
@@ -22,7 +20,7 @@ function ColorHistory( ){
     }, [swatches]);
     
     const handleSaveSwatches = () => {
-        if(!swatches.includes(currentColor.value)){
+        if(!swatches.includes(currentColor)){
             setSwatches([...swatches, currentColor]);
         }
     };
@@ -42,7 +40,7 @@ function ColorHistory( ){
                 padding: '10px 20px',
                 border: 'none',
                 borderRadius: '5px',
-                cursor: 'pionter',
+                cursor: 'pointer',
                 fontSize: '16px',
                 fontWeight: 'bold'
             }} 

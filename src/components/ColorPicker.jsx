@@ -5,7 +5,7 @@ import ColorHistory from './ColorHistory';
 
 
 
-function ColorPicker() {
+function ColorPicker( ) {
 
     const [currentColor,setCurrentColor] = useState ([]);
     const [inputColor , setInputColor] = useState ([]);
@@ -71,7 +71,7 @@ function ColorPicker() {
         textAlign: 'center',
         }}>Selected color: {currentColor}</p>
       </div>
-      <ColorHistory/>
+      <ColorHistory currentColor={currentColor} setCurrentColor={setCurrentColor}/>
     </div>
   );
 }
