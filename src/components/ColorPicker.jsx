@@ -1,4 +1,3 @@
-"import {SketchPicker} from 'react-color';"
 import React, { useState } from 'react';
 import ColorHistory from './ColorHistory';
 
@@ -8,7 +7,7 @@ import ColorHistory from './ColorHistory';
 function ColorPicker( ) {
 
     const [currentColor,setCurrentColor] = useState ([]);
-    const [inputColor , setInputColor] = useState ([]);
+    const [inputColor , setInputColor] = useState ('');
     const [error , setError] = useState('');
     
 
@@ -19,9 +18,10 @@ function ColorPicker( ) {
 
     const handleInputChange = (e) => {
       const newInputColor = e.target.value;
+      setInputColor(newInputColor);
+      
       if (/^#[0-9A-F]{6}$/i.test(newInputColor)){
         setCurrentColor(newInputColor);
-        setInputColor(newInputColor);
         setError('')
       } else {
         setError('Invalid color code');

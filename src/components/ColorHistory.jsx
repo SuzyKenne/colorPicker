@@ -5,6 +5,7 @@ function ColorHistory({currentColor, setCurrentColor} ){
 
     const [swatches, setSwatches] = useState([]);
     
+    
      
 
     useEffect(()=>{
@@ -31,6 +32,20 @@ function ColorHistory({currentColor, setCurrentColor} ){
 
     }
 
+    
+
+    // const loadPalette = (palette) => {
+    //     setSwatches(palette.colors);
+    // };
+      
+    const clearPalettes = () => {
+        localStorage.removeItem('palettes');
+        setSwatches([]);
+    };
+      
+      
+      
+
      
     
     return(
@@ -42,11 +57,34 @@ function ColorHistory({currentColor, setCurrentColor} ){
                 borderRadius: '5px',
                 cursor: 'pointer',
                 fontSize: '16px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                margin: '10px'
             }} 
             onClick={handleSaveSwatches}>Save Color</button>
 
+                {/* <button 
+                style={{
+                    padding: '10px 20px',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                    fontWeight: 'bold'
+                }} 
+                onClick={() => loadPalette(swatches)}>Load Palette</button>
+                */}
+               <button
+               style={{
+                padding: '10px 20px',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: 'bold'
+            }} 
+            onClick={clearPalettes}>Clear All Palettes</button>
 
+            
                 <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
                 {swatches.map((color, index ) => (
                     <div
@@ -65,6 +103,7 @@ function ColorHistory({currentColor, setCurrentColor} ){
                     ></div>
                 ))}
             </div>
+            
             
         </div>
     )
